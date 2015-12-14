@@ -39,6 +39,30 @@ public class OriginSMSappFragment extends Fragment {
         button2 = (Button)rootView.findViewById(R.id.button2);
         button3 = (Button)rootView.findViewById(R.id.button3);
 
+        button1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                sendMessageIMEI(v);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                sendMessageNoIMEI(v);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                doInterComponentLeak(v);
+            }
+        });
+
         return rootView;
     }
 
@@ -91,35 +115,5 @@ public class OriginSMSappFragment extends Fragment {
         i.putExtra("imei", telephonyManager.getDeviceId());
 
         startActivity(i);
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        button1.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                sendMessageIMEI(v);
-            }
-        });
-
-        button2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                sendMessageNoIMEI(v);
-            }
-        });
-
-        button3.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                doInterComponentLeak(v);
-            }
-        });
-
     }
 }

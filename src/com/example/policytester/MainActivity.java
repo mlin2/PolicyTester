@@ -2,21 +2,12 @@ package com.example.policytester;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.telephony.SmsManager;
-import android.telephony.TelephonyManager;
-import android.view.View;
-import android.widget.EditText;
-
+import android.util.Log;
 
 import com.example.policytester.adapter.TabsPagerAdapter;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -26,7 +17,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	private String[] tabs = { "OriginalsApp", "Extended", "Extended++"};
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
@@ -40,7 +31,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         actionBar.setHomeButtonEnabled(false);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-
         // Tabs
         for (String tab_name : tabs){
             actionBar.addTab(actionBar.newTab().setText(tab_name).setTabListener(this));
@@ -50,8 +40,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
             @Override
             public void onPageSelected(int position) {
-                // on changing the page
-                // make respected tab selected
                 actionBar.setSelectedNavigationItem(position);
             }
 
